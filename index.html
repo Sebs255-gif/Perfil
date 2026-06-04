@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="es" style="scroll-behavior: smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil — Sebastián Cruz Hernández</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* =====================
+       NAVBAR
+    ===================== */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        padding: 14px 30px;
+        z-index: 999;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+
+      nav .nav-brand {
+        font-family: "DM Serif Display", serif;
+        font-size: 16px;
+        color: #1a1a18;
+        margin-right: auto; /* empuja los enlaces hacia la derecha */
+      }
+
+      nav a {
+        text-decoration: none;
+        font-size: 14px;
+        color: #5a5a54;
+      }
+
+      nav a:hover {
+        color: #2c5f4a;
+      }
+
+      /* =====================
+       VARIABLES & RESET
+    ===================== */
+      :root {
+        --bg: #f5f2ed;
+        --surface: #ffffff;
+        --accent: #2c5f4a;
+        --accent-lt: #e8f0ec;
+        --text-1: #1a1a18;
+        --text-2: #5a5a54;
+        --text-3: #9a9a90;
+        --border: rgba(0, 0, 0, 0.08);
+        --radius: 14px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--bg);
+        color: var(--text-1);
+        min-height: 100vh;
+        padding: 3rem 1rem 4rem;
+        padding-top: 5rem; /* espacio para que el contenido no quede debajo del nav */
+      }
+
+      /* =====================
+       LAYOUT
+    ===================== */
+      .page {
+        max-width: 760px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      /* =====================
+       HEADER / HERO
+    ===================== */
+      .hero {
+        background: var(--surface);
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        padding: 2rem 2rem 1.75rem;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1.5rem;
+        align-items: center;
+        animation: fadeUp 0.5s ease both;
+      }
+
+      .avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        font-family: "DM Serif Display", serif;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 1px;
+        flex-shrink: 0;
+      }
+
+      .hero-info h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 28px;
+        font-weight: 400;
+        color: var(--text-1);
+        line-height: 1.2;
+      }
+
+      .hero-info .tagline {
+        font-size: 14px;
+        color: var(--text-2);
+        margin-top: 4px;
+      }
+
+      .hero-info .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 12px;
+      }
+
+      .tag {
+        font-size: 12px;
+        font-weight: 500;
+        padding: 3px 12px;
+        border-radius: 100px;
+        background: var(--accent-lt);
+        color: var(--accent);
+      }
+
+      /* =====================
+       CARDS
+    ===================== */
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+      }
+
+      .card {
+        background: var(--surface);
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        padding: 1.5rem;
+        animation: fadeUp 0.5s ease both;
+      }
+
+      .card:nth-child(2) {
+        animation-delay: 0.05s;
+      }
+      .card:nth-child(3) {
+        animation-delay: 0.1s;
+      }
+      .card:nth-child(4) {
+        animation-delay: 0.15s;
+      }
+      .card:nth-child(5) {
+        animation-delay: 0.2s;
+      }
+
+      .card-label {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-3);
+        margin-bottom: 1rem;
+      }
+
+      /* =====================
+       DATOS PERSONALES
+    ===================== */
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 9px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 14px;
+      }
+
+      .info-row:last-child {
+        border-bottom: none;
+      }
+
+      .info-row .key {
+        color: var(--text-3);
+        font-weight: 400;
+        min-width: 110px;
+      }
+
+      .info-row .val {
+        color: var(--text-1);
+        font-weight: 400;
+        text-align: right;
+      }
+
+      /* =====================
+       CONTACTO
+    ===================== */
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 14px;
+        color: var(--text-2);
+      }
+
+      .contact-item:last-child {
+        border-bottom: none;
+      }
+
+      .contact-item .icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: var(--accent-lt);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .contact-item .icon svg {
+        width: 15px;
+        height: 15px;
+        stroke: var(--accent);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .contact-item a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .contact-item a:hover {
+        text-decoration: underline;
+      }
+
+      /* =====================
+       BIO
+    ===================== */
+      .bio-text {
+        font-size: 15px;
+        color: var(--text-2);
+        line-height: 1.75;
+      }
+
+      /* =====================
+       ACADÉMICO
+    ===================== */
+      .edu-item {
+        position: relative;
+        padding-left: 18px;
+        margin-bottom: 1.25rem;
+      }
+
+      .edu-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .edu-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .edu-item::after {
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 16px;
+        bottom: -14px;
+        width: 1px;
+        background: var(--border);
+      }
+
+      .edu-item:last-child::after {
+        display: none;
+      }
+
+      .edu-degree {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-1);
+      }
+
+      .edu-school {
+        font-size: 13px;
+        color: var(--text-2);
+        margin-top: 2px;
+      }
+
+      .edu-year {
+        font-size: 11px;
+        color: var(--text-3);
+        margin-top: 3px;
+      }
+
+      /* =====================
+       HABILIDADES
+    ===================== */
+      .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill-chip {
+        font-size: 13px;
+        padding: 5px 14px;
+        border-radius: 100px;
+        border: 1px solid var(--border);
+        color: var(--text-2);
+        background: var(--bg);
+      }
+
+      .lang-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 14px;
+      }
+
+      .lang-row:last-child {
+        border-bottom: none;
+      }
+
+      .lang-name {
+        color: var(--text-1);
+      }
+
+      .lang-level {
+        font-size: 12px;
+        color: var(--accent);
+        background: var(--accent-lt);
+        padding: 2px 10px;
+        border-radius: 100px;
+      }
+
+      /* =====================
+       ANIMACIÓN
+    ===================== */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* =====================
+       RESPONSIVE
+    ===================== */
+      @media (max-width: 560px) {
+        .grid2 {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .hero .tags {
+          justify-content: center;
+        }
+        .avatar {
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ─── NAVBAR ──────────────────────────── -->
+    <nav>
+      <ul>
+        <li><span class="nav-brand">SCH</span></li>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#academico">Académico</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <main class="page">
+      <!-- ─── HERO ─────────────────────────── -->
+      <section class="hero" id="inicio">
+        <div class="avatar">SCH</div>
+        <div class="hero-info">
+          <h1>Sebastián Cruz Hernández</h1>
+          <p class="tagline">Ingeniero en Mecatrónica · Ciudad de México</p>
+          <div class="tags">
+            <span class="tag">Robótica</span>
+            <span class="tag">Data Science</span>
+            <span class="tag">UX / UI</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── FILA: PERSONAL + CONTACTO ─────── -->
+      <div class="grid2">
+        <div class="card">
+          <p class="card-label">Datos personales</p>
+
+          <div class="info-row">
+            <span class="key">Nombre</span>
+            <span class="val">Sebastián Cruz Hernández</span>
+          </div>
+          <div class="info-row">
+            <span class="key">Edad</span>
+            <span class="val">22 años</span>
+          </div>
+          <div class="info-row">
+            <span class="key">Nacimiento</span>
+            <span class="val">2 de julio del 2003</span>
+          </div>
+          <div class="info-row">
+            <span class="key">Nacionalidad</span>
+            <span class="val">Mexicana</span>
+          </div>
+          <div class="info-row">
+            <span class="key">Ciudad</span>
+            <span class="val">Ciudad de México</span>
+          </div>
+        </div>
+
+        <div class="card" id="contacto">
+          <p class="card-label">Contacto</p>
+          <div class="contact-item">
+            <div class="icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <polyline points="2,4 12,13 22,4" />
+              </svg>
+            </div>
+            <a href="mailto:0217956@up.edu.mx">0217956@up.edu.mx</a>
+          </div>
+          <div class="contact-item">
+            <div class="icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3.08 4.18 2 2 0 0 1 5.09 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+            </div>
+            <span>+52 55 5555 5555</span>
+          </div>
+          <div class="contact-item">
+            <div class="icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"
+                />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </div>
+            <a
+              href="www.linkedin.com/in/sebastián-cruz-hernández-9106a2348"
+              target="_blank"
+              >linkedin.com/in/sebitas</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── BIO ───────────────────────────── -->
+      <div class="card" id="sobre-mi">
+        <p class="card-label">Sobre mí</p>
+        <p class="bio-text">
+          Ingeniero mecatrónico con especialidad en Diseño Interactivo.
+          Apasionado por la tecnología, el diseño y la innovación. En mis
+          tiempos libres doy clases de robótica y toco instrumentos musicales.
+          Busco oportunidades para aplicar mis habilidades en proyectos
+          desafiantes.
+        </p>
+      </div>
+
+      <!-- ─── FILA: ACADÉMICO + HABILIDADES ─── -->
+      <div class="grid2" id="academico">
+        <div class="card">
+          <p class="card-label">Formación académica</p>
+
+          <div class="edu-item">
+            <div class="edu-degree">Ing. en Mecatrónica</div>
+            <div class="edu-school">Universidad Panamericana</div>
+            <div class="edu-year">2021 – 2026</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">Diplomado en Ciencia de Datos</div>
+            <div class="edu-school">Universidad Panamericana</div>
+            <div class="edu-year">2025 – 2026</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">Especialidad en Diseño Interactivo</div>
+            <div class="edu-school">Universidad Panamericana</div>
+            <div class="edu-year">2025 - 2026</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <p class="card-label">Habilidades</p>
+          <div class="skills-grid" style="margin-bottom: 1.25rem">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">C#</span>
+            <span class="skill-chip">Machine Learning</span>
+            <span class="skill-chip">SolidWorks</span>
+            <span class="skill-chip">Figma</span>
+          </div>
+
+          <p class="card-label">Idiomas</p>
+          <div class="lang-row">
+            <span class="lang-name">Español</span>
+            <span class="lang-level">Nativo</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">Inglés</span>
+            <span class="lang-level">B2 — Intermedio</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">Japones</span>
+            <span class="lang-level">A1 — Básico</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
