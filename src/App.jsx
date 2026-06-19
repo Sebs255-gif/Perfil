@@ -1,29 +1,53 @@
 import "./App.css";
+import { useState } from "react";
 
 export default function App() {
+  const [menuAbierto, setMenuAbierto] = useState(false);
+
   return (
     <>
       {/* ─── NAVBAR ──────────────────────────── */}
       <nav>
-        <ul>
-          <li>
+        <div className="nav-inner">
+          <div className="nav-top">
             <span className="nav-brand">SCH</span>
-          </li>
-          <li>
-            <a href="#inicio">Inicio</a>
-          </li>
-          <li>
-            <a href="#sobre-mi">Sobre mí</a>
-          </li>
-          <li>
-            <a href="#academico">Académico</a>
-          </li>
-          <li>
-            <a href="#contacto">Contacto</a>
-          </li>
-        </ul>
+
+            {/* Botón hamburguesa, posicionado a la derecha en pantallas pequeñas */}
+            <button
+              className="nav-toggle"
+              onClick={() => setMenuAbierto(!menuAbierto)}
+              aria-label="Abrir menú"
+            >
+              {menuAbierto ? "✕" : "☰"}
+            </button>
+          </div>
+
+          <ul className={menuAbierto ? "nav-links abierto" : "nav-links"}>
+            <li>
+              <a href="#inicio" onClick={() => setMenuAbierto(false)}>
+                Inicio
+              </a>
+            </li>
+            <li>
+              <a href="#sobre-mi" onClick={() => setMenuAbierto(false)}>
+                Sobre mí
+              </a>
+            </li>
+            <li>
+              <a href="#academico" onClick={() => setMenuAbierto(false)}>
+                Académico
+              </a>
+            </li>
+            <li>
+              <a href="#contacto" onClick={() => setMenuAbierto(false)}>
+                Contacto
+              </a>
+            </li>
+          </ul>
+        </div>
       </nav>
 
+      {/* ─── CONTENIDO PRINCIPAL ──────────────── */}
       <main className="page">
         {/* ─── HERO ─────────────────────────── */}
         <section className="hero" id="inicio">
@@ -163,7 +187,7 @@ export default function App() {
               <span className="lang-level">B2 — Intermedio</span>
             </div>
             <div className="lang-row">
-              <span className="lang-name">Japones</span>
+              <span className="lang-name">Japonés</span>
               <span className="lang-level">A1 — Básico</span>
             </div>
           </div>
