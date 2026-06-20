@@ -545,7 +545,12 @@ RESPONSIVE — TABLETAS Y MÓVILES
 @media (max-width: 560px) {
   body {
     padding: 1rem 0.75rem 3rem;
-    padding-top: 5.5rem; /* Asegura que el contenido no quede oculto bajo el nav */
+    padding-top: 5.5rem;
+  }
+
+  .grid3 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   /* Las tarjetas pasan a ocupar todo el ancho fluido */

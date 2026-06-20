@@ -307,6 +307,32 @@ export default function App() {
 
         {/* ─── FILA: Contacto + HABILIDADES ─── */}
         <div className="grid2">
+          <div className="card">
+            <p className="card-label">Habilidades</p>
+            <div className="skills-grid" style={{ marginBottom: "1.25rem" }}>
+              <span className="skill-chip">Python</span>
+              <span className="skill-chip">JavaScript</span>
+              <span className="skill-chip">C#</span>
+              <span className="skill-chip">Machine Learning</span>
+              <span className="skill-chip">SolidWorks</span>
+              <span className="skill-chip">Figma</span>
+            </div>
+
+            <p className="card-label">Idiomas</p>
+            <div className="lang-row">
+              <span className="lang-name">Español</span>
+              <span className="lang-level">Nativo</span>
+            </div>
+            <div className="lang-row">
+              <span className="lang-name">Inglés</span>
+              <span className="lang-level">B2 — Intermedio</span>
+            </div>
+            <div className="lang-row">
+              <span className="lang-name">Japonés</span>
+              <span className="lang-level">A1 — Básico</span>
+            </div>
+          </div>
+
           <div className="card" id="contacto">
             <p className="card-label">Contacto</p>
             <div className="contact-item">
@@ -341,32 +367,6 @@ export default function App() {
               >
                 linkedin.com/in/sebitas
               </a>
-            </div>
-          </div>
-
-          <div className="card">
-            <p className="card-label">Habilidades</p>
-            <div className="skills-grid" style={{ marginBottom: "1.25rem" }}>
-              <span className="skill-chip">Python</span>
-              <span className="skill-chip">JavaScript</span>
-              <span className="skill-chip">C#</span>
-              <span className="skill-chip">Machine Learning</span>
-              <span className="skill-chip">SolidWorks</span>
-              <span className="skill-chip">Figma</span>
-            </div>
-
-            <p className="card-label">Idiomas</p>
-            <div className="lang-row">
-              <span className="lang-name">Español</span>
-              <span className="lang-level">Nativo</span>
-            </div>
-            <div className="lang-row">
-              <span className="lang-name">Inglés</span>
-              <span className="lang-level">B2 — Intermedio</span>
-            </div>
-            <div className="lang-row">
-              <span className="lang-name">Japonés</span>
-              <span className="lang-level">A1 — Básico</span>
             </div>
           </div>
         </div>
