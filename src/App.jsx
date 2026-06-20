@@ -71,6 +71,11 @@ export default function App() {
               </a>
             </li>
             <li>
+              <a href="#datos-personales" onClick={() => setMenuAbierto(false)}>
+                Datos personales
+              </a>
+            </li>
+            <li>
               <a href="#academico" onClick={() => setMenuAbierto(false)}>
                 Académico
               </a>
@@ -114,7 +119,7 @@ export default function App() {
 
         {/* ─── FILA: PERSONAL + CONTACTO ─────── */}
         <div className="grid2">
-          <div className="card">
+          <div className="card" id="datos-personales">
             <p className="card-label">Datos personales</p>
 
             <div className="info-row">
