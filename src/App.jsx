@@ -4,6 +4,9 @@ import { useState, useEffect, useCallback } from "react";
 import USA from "./assets/USA 2022.png";
 import China2025 from "./assets/China 2025.png";
 import singapore from "./assets/singapur 2025.png";
+import Kchao from "./assets/kchao.jpeg";
+import guitarra from "./assets/guitarra.jpg";
+import robot from "./assets/robot.jpg";
 
 const slides = [
   {
@@ -71,6 +74,11 @@ export default function App() {
               </a>
             </li>
             <li>
+              <a href="#academico" onClick={() => setMenuAbierto(false)}>
+                Académico
+              </a>
+            </li>
+            <li>
               <a href="#sobre-mi" onClick={() => setMenuAbierto(false)}>
                 Sobre mí
               </a>
@@ -78,11 +86,6 @@ export default function App() {
             <li>
               <a href="#galeria" onClick={() => setMenuAbierto(false)}>
                 Robótica Garage
-              </a>
-            </li>
-            <li>
-              <a href="#academico" onClick={() => setMenuAbierto(false)}>
-                Académico
               </a>
             </li>
             <li>
@@ -172,6 +175,53 @@ export default function App() {
             Busco oportunidades para aplicar mis habilidades en proyectos
             desafiantes.
           </p>
+          <p className="card-label" style={{ marginTop: "2.25rem" }}>
+            Mis pasiones
+          </p>
+          {}
+          <div className="grid3">
+            <div className="bio-sub-card">
+              <div className="bio-sub-card-img">
+                <img src={Kchao} alt="Rayo McQueen" loading="lazy" />
+              </div>
+              <div className="bio-sub-card-body">
+                <h4 className="bio-sub-card-title">El Rayo McQueen</h4>
+                <p className="bio-sub-card-text">
+                  Desde pequeño, el Rayo McQueen ha sido mi héroe. Su espíritu
+                  competitivo es un ejemplo de perseverancia y pasión por la
+                  excelencia.
+                </p>
+              </div>
+            </div>
+
+            <div className="bio-sub-card">
+              <div className="bio-sub-card-img">
+                <img src={guitarra} alt="Música" loading="lazy" />
+              </div>
+              <div className="bio-sub-card-body">
+                <h4 className="bio-sub-card-title">Música</h4>
+                <p className="bio-sub-card-text">
+                  Tanto escucharla como tocarla, la música es una parte
+                  fundamental de mi vida. Me inspira a ser creativo y a
+                  encontrar nuevas formas de expresión.
+                </p>
+              </div>
+            </div>
+
+            <div className="bio-sub-card">
+              <div className="bio-sub-card-img">
+                <img src={robot} alt="Robótica" loading="lazy" />
+              </div>
+              <div className="bio-sub-card-body">
+                <h4 className="bio-sub-card-title">Robótica</h4>
+                <p className="bio-sub-card-text">
+                  La robótica y la tecnología en general me parecen
+                  profundamente interesantes. Me encanta la idea de crear algo
+                  que pueda ayudar.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* ─── CARRUSEL Garage ─── */}
