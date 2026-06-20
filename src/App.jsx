@@ -33,7 +33,6 @@ export default function App() {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [slideActivo, setSlideActivo] = useState(0);
 
-  // Usamos useCallback para que las funciones mantengan su referencia en memoria estable
   const siguienteSlide = useCallback(() => {
     setSlideActivo((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   }, []);
@@ -42,8 +41,6 @@ export default function App() {
     setSlideActivo((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   }, []);
 
-  // Temporizador para el auto-play del carrusel (5 segundos)
-  // Ahora escucha de forma segura a 'siguienteSlide', solucionando de raíz el warning de ESLint.
   useEffect(() => {
     const temporizador = setInterval(siguienteSlide, 5000);
     return () => clearInterval(temporizador);
@@ -116,7 +113,7 @@ export default function App() {
         </section>
 
         {/* ─── FILA: PERSONAL + CONTACTO ─────── */}
-        <div className="grid2" id="academico">
+        <div className="grid2">
           <div className="card">
             <p className="card-label">Datos personales</p>
 
@@ -142,7 +139,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="card">
+          <div className="card" id="academico">
             <p className="card-label">Formación académica</p>
 
             <div className="edu-item">
