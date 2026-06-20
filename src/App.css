@@ -1,9 +1,4 @@
 /* =====================
-FUENTES
-===================== */
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap");
-
-/* =====================
 VARIABLES & RESET
 ===================== */
 :root {
@@ -19,12 +14,22 @@ VARIABLES & RESET
   --content-width: 760px;
 }
 
+/* =====================
+FUENTES
+===================== */
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap");
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -36,7 +41,9 @@ body {
   padding-top: 6rem; /* espacio para el nav fijo */
 }
 
-/* ===================== NAVBAR ===================== */
+/* =====================
+NAVBAR
+===================== */
 nav {
   position: fixed;
   top: 0;
@@ -159,11 +166,6 @@ Hero
   flex-shrink: 0;
 }
 
-.hero-info {
-  min-width: 0;
-  width: 100%;
-}
-
 .hero-info h1 {
   font-family: "DM Serif Display", serif;
   font-size: 28px;
@@ -181,18 +183,17 @@ Hero
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   margin-top: 12px;
 }
 
 .tag {
   font-size: 12px;
   font-weight: 500;
-  padding: 4px 12px;
+  padding: 3px 12px;
   border-radius: 100px;
   background: var(--accent-lt);
   color: var(--accent);
-  white-space: nowrap; /* Evita que etiquetas como "Data Science" se partan en dos renglones */
 }
 
 /* =====================
@@ -231,7 +232,7 @@ CARDS (Tarjetas)
 }
 
 /* =====================
-DATOS PERSONALES
+Datos
 ===================== */
 .info-row {
   display: flex;
@@ -261,7 +262,7 @@ DATOS PERSONALES
 }
 
 /* =====================
-CONTACTO
+Contacto
 ===================== */
 .contact-item {
   display: flex;
@@ -309,7 +310,7 @@ CONTACTO
 }
 
 /* =====================
-BIO
+Bio
 ===================== */
 .bio-text {
   font-size: 15px;
@@ -318,7 +319,7 @@ BIO
 }
 
 /* =====================
-ACADÉMICO
+Académico
 ===================== */
 .edu-item {
   position: relative;
@@ -483,6 +484,7 @@ RESPONSIVE — TABLETAS Y MÓVILES
     padding-top: 5.5rem; /* Asegura que el contenido no quede oculto bajo el nav */
   }
 
+  /* Las tarjetas pasan a ocupar todo el ancho fluido */
   .grid2 {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -529,4 +531,135 @@ RESPONSIVE — TABLETAS Y MÓVILES
     width: 100%;
     font-weight: 500;
   }
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #0b0e14;
+  margin-top: 1.25rem;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.7s ease-in-out,
+    visibility 0.7s ease-in-out;
+  z-index: 1;
+}
+
+.carousel-slide.activo {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 6s ease-in-out;
+}
+
+.carousel-slide.activo .carousel-image {
+  transform: scale(1.05);
+}
+
+.carousel-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 3rem 1.5rem 1.5rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 60%,
+    transparent 100%
+  );
+  color: #ffffff;
+  z-index: 3;
+}
+
+.carousel-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.carousel-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 4;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.carousel-control:hover {
+  background-color: var(--accent);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev {
+  left: 12px;
+}
+.carousel-next {
+  right: 12px;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 4;
+}
+
+.carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.carousel-dot.activo {
+  background-color: #ffffff;
+  width: 20px;
+  border-radius: 100px;
 }
