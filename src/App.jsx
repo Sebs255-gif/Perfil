@@ -227,7 +227,7 @@ export default function App() {
 
           <p className="bio-text">
             Un aspecto muy importante sobre mí es Robotica Garage, un proyecto
-            que empecé con amigos y un antuguo profesor en 2017. Todo comienza
+            que empecé con amigos y un antiguo profesor en 2017. Todo comienza
             con un taller de robótica en la escuela, donde nos dimos cuenta de
             que no había un espacio adecuado para construir y experimentar con
             robots. Decidimos entonces crear nuestro propio taller, al que
